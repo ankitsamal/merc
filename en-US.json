@@ -1,0 +1,131 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "ankit mercedes",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "HelloWorldIntent",
+                  "slots": [],
+                  "samples": [
+                      "hello"
+                  ]
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "CheckDoors",
+                  "slots": [],
+                  "samples": [
+                      "check if the doors are not locked",
+                      "check if the doors are locked",
+                      "tell me mercedes door status",
+                      "check if locked my car",
+                      "check mercedes doors"
+                  ]
+              },
+              {
+                  "name": "LockCar",
+                  "slots": [
+                      {
+                          "name": "TODO",
+                          "type": "TODO"
+                      }
+                  ],
+                  "samples": [
+                      "{TODO} my car"
+                  ]
+              },
+              {
+                  "name": "Location",
+                  "slots": [],
+                  "samples": [
+                      "find my car",
+                      "where is my car",
+                      "where is my Mercedes"
+                  ]
+              },
+              {
+                  "name": "Fuel",
+                  "slots": [],
+                  "samples": [
+                      "how much fuel is left",
+                      "do i need to refuel",
+                      "does mercedes need gas",
+                      "how much gas is left",
+                      "Do i need to refill gas"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "name": "TODO",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "close",
+                              "synonyms": [
+                                  "shut",
+                                  "lock"
+                              ]
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "open",
+                              "synonyms": [
+                                  "unlock"
+                              ]
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "LockCar",
+                  "confirmationRequired": true,
+                  "prompts": {
+                      "confirmation": "Confirm.Intent.1340219802642"
+                  },
+                  "slots": [
+                      {
+                          "name": "TODO",
+                          "type": "TODO",
+                          "confirmationRequired": false,
+                          "elicitationRequired": false,
+                          "prompts": {}
+                      }
+                  ]
+              }
+          ],
+          "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+          {
+              "id": "Confirm.Intent.1340219802642",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Are you sure you want to {TODO} Mercedes?"
+                  }
+              ]
+          }
+      ]
+  }
+}
